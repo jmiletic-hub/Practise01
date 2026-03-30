@@ -11,12 +11,13 @@ let books = [];
                     bookDescription: bookDescription,
                     pagesNumber: pagesNumber
                 };
-                books.push(book);
-                showbooks();
-                clearInputs();
+              books.push(book);
+            showbooks();
+            clearInputs();
             } else {
                 alert('Please fill in all fields correctly.');
             }
+      
         }
 function showbooks() {
     const booksDiv = books.map((book, index) => `<h1>book Number: ${index + 1}</h1>
@@ -43,3 +44,8 @@ function editbook(index) {
             document.getElementById('bookDescription').value = '';
             document.getElementById('pagesNumber').value = '';
  }
+   function deletebook(index) {
+    // Remove the book entry at the given index
+   books.splice(index, 1);
+    showbooks(); // Refresh the book list after deletion
+   }
